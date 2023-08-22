@@ -9,7 +9,6 @@ import numpy as np
 import openai
 import os
 import json
-from pyswip import Prolog
 import subprocess
 import math
 import dash_cytoscape as cyto
@@ -159,46 +158,6 @@ def remove_car_at_beginning(input_string):
     else:
         return input_string
 
-# Run inference and store results in a json file
-def run_inference():
-    pred_pos = subprocess.check_output(f'python src/components/rule_induction/run_inference.py', shell=True)  
-    pred_pos = pred_pos.decode()  
-    pred_pos = gpt_str2lst(pred_pos)
-    pred_pos = pred_pos[0].split(',')
-    # remove ' from each string in pred_pos
-    pred_pos = [s.replace("'.", "") for s in pred_pos]
-    pred_pos = [s.replace("'", "") for s in pred_pos]
-    pred_pos = [s.replace(" ", "") for s in pred_pos]
-
-    # save the pos_pred_dict to a json file
-
-    root_path = os.path.join(os.getcwd(), 'src/components/rule_induction/')
-    output_path = os.path.join(root_path, "positive_preds.json")
-    pos_pred_dict = {'pos_preds':pred_pos}
-    with open(output_path, "w") as outfile:
-        json.dump(pos_pred_dict, outfile)
-    
-    return pred_pos
-
-def run_inference_script():
-    """Runs the inference script and returns the positive predictions"""
-
-    root_path = os.path.join(os.getcwd(), 'src/components/rule_induction/')
-    inference_file_path = os.path.join(root_path, 'inference_file.pl')
-    output_path = os.path.join(root_path, "positive_preds.json")
-
-    prolog = Prolog()
-    prolog.consult(inference_file_path)
-    pos_preds = list(prolog.query("eastbound(X)."))
-    pos_preds = [list(pred.values())[0] for pred in pos_preds]
-    pos_preds = [1,2,3,4]
-    pos_pred_dict = {'pos_preds':pos_preds}
-
-    # save the pos_pred_dict to a json file
-    with open(output_path, "w") as outfile:
-        json.dump(pos_pred_dict, outfile)
-    
-    return  None
 
 def write_to_prolog_file(inference_file_path, lst, dataset):
     '''Writes a list of strings to a prolog file'''

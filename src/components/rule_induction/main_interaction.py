@@ -1,6 +1,5 @@
 from dash import html, Input, Output, State, dcc, callback, no_update, dash_table, callback_context
 import dash_bootstrap_components as dbc
-from pyswip import Prolog
 import subprocess
 import json
 import pandas as pd

@@ -32,7 +32,7 @@ def load_assert_examples_table(dataset):
     return df, unknown, pos, neg
 
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
-server=app.server
+# server=app.server
 
 app.layout = html.Div(
     [
@@ -678,6 +678,8 @@ def removePredicate(n_clicks, data, value):
     if not n_clicks:
         return no_update
 
+    if value == '':
+        return html.Span(f"Sorry! That predicate wasn't recognise. Please try again.", style=dict(color='red'))
     # Remove car from front of string to make it compatable with the raw_bottom_clause that we use to create constraint indices
     # value = remove_car_at_beginning(value)
 
