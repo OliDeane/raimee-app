@@ -1,0 +1,12 @@
+﻿car_id,train_id,length,open_closed,double,jagged,shape,wheels,load_shape,load_value
+primary key,foreign key,,,,,,,,
+car_11,e_1,short,open,no,no,rectangle,2,rectangle,3
+car_12,e_1,long,closed,no,no,rectangle,2,triangle,2
+car_13,e_1,long,open,no,no,rectangle,3,hexagon,1
+car_14,e_1,long,open,no,no,rectangle,2,circle,1
+car_21,e_2,long,closed,no,no,u_shaped,2,triangle,1
+car_22,e_2,long,closed,no,no,u_shaped,2,rectangle,1
+car_23,e_2,short,open,no,no,rectangle,2,circle,2
+car_31,e_3,short,open,no,no,rectangle,2,circle,1
+car_32,e_3,short,closed,no,no,hexagon,2,triangle,1
+car_33,e_3,long,closed,no,no,rectangle,3,triangle,1

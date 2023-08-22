@@ -1,0 +1,12 @@
+id,class
+primary key,
+train1,pos
+train2,pos
+train3,unknown
+train4,pos
+train5,pos
+train6,neg
+train7,pos
+train8,neg
+train9,neg
+train10,pos

@@ -1,0 +1,2 @@
+[must(short(_))]
+[must_not(load(_,triangle,1))]

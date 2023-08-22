@@ -1,0 +1,6 @@
+eastbound(train6).
+eastbound(train7).
+eastbound(train8).
+eastbound(train9).
+eastbound(train10).
+

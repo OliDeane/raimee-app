@@ -1,0 +1,12 @@
+id,class
+primary key,
+east1,pos
+east2,pos
+east3,unknown
+east4,pos
+east5,pos
+east6,neg
+east7,pos
+east8,neg
+east9,neg
+east10,pos

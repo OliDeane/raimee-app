@@ -1,0 +1,1 @@
+{"1": {"hypothesis": "Train *A* is eastbound if train *A* has a car *B*, car *B* is short.", "coverage": {"pos": 5, "neg": 2}, "constraints": ["must_not:load(_,triangle,1)"]}}
