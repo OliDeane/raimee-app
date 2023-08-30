@@ -161,8 +161,8 @@ def remove_car_at_beginning(input_string):
 
 def write_to_prolog_file(inference_file_path, lst, dataset):
     '''Writes a list of strings to a prolog file'''
-    # kb_path = f"src/data/{dataset}/pred_pos/{dataset}.b"
-    kb_path = f"src/data/train_trials/rule{dataset}/train{dataset}.b"
+    # kb_path = f"data/{dataset}/pred_pos/{dataset}.b"
+    kb_path = f"data/train_trials/rule{dataset}/train{dataset}.b"
     with open(inference_file_path, 'w') as f:
         f.write(f":-consult('{kb_path}').\n")
         for item in lst:

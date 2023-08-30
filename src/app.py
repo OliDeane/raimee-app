@@ -122,7 +122,7 @@ def display_clause_and_acuity_options(n_clicks, text_input):
 
     # Fetch current dataset path
     selected_dataset = get_selected_dataset()
-    pycuity_path = "src/data/acuityFiles/pycuity"
+    pycuity_path = "data/acuityFiles/pycuity"
     # pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
     pos_data_path = f"'src/data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
 
@@ -173,7 +173,7 @@ def display_clause_and_acuity_options(n_clicks, text_input):
             json.dump(search_constraint_dict, f, indent=4)
 
 
-        search_constraint_path = f"src/components/all_dynamic_files/search_spaces/search_and_constraints_example{value}.json"
+        search_constraint_path = f"components/all_dynamic_files/search_spaces/search_and_constraints_example{value}.json"
 
         if os.path.isfile(search_constraint_path):
             # update the constraint violations only
@@ -505,7 +505,7 @@ def display_bottom_clause(data, pick, extent, alternatives, clear_constraints, s
 
     elif button_id == 'alt_clause-button':
 
-        alternative_hypotheses = get_good_clauses("src/components/all_dynamic_files/good_clauses.txt")
+        alternative_hypotheses = get_good_clauses("components/all_dynamic_files/good_clauses.txt")
         
         alt_hyp_display = html.Div(
             [
@@ -689,7 +689,7 @@ def removePredicate(n_clicks, data, value):
     # predicate = re.sub(r'\(.+', '', value)
 
     # Assert the mustnot constraint
-    pycuity_path = "src/data/acuityFiles/pycuity"
+    pycuity_path = "data/acuityFiles/pycuity"
     pos_data_path = f"'src/data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
 
     # generate the must_not constraint from the selected predicate
@@ -732,7 +732,7 @@ def removePredicate(n_clicks, data, value):
     # value = remove_car_at_beginning(value)
 
     # Assert the mustnot constraint
-    pycuity_path = "src/data/acuityFiles/pycuity"
+    pycuity_path = "data/acuityFiles/pycuity"
     # pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
     pos_data_path = f"'src/data/train_trials/pred_pos/rule{selected_dataset}/train{selected_dataset}'" 
 
@@ -772,7 +772,7 @@ def removePredicate(n_clicks, data, value):
     # predicate = re.sub(r'\(.+', '', value)
 
     # Assert the mustnot constraint
-    pycuity_path = "src/data/acuityFiles/pycuity"
+    pycuity_path = "data/acuityFiles/pycuity"
     # pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
     pos_data_path = f"'src/data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
 
@@ -822,7 +822,7 @@ def addPredicate(n_clicks, data, value):
     # value = remove_car_at_beginning(value)
 
     # Assert the mustnot constraint
-    pycuity_path = "src/data/acuityFiles/pycuity"
+    pycuity_path = "data/acuityFiles/pycuity"
     pos_data_path = f"'src/data/train_trials/pred_pos/rule{selected_dataset}/train{selected_dataset}'" 
 
     # generate the must_not constraint from the selected predicate
@@ -863,7 +863,7 @@ def induce_all(n_clicks):
     selected_dataset = get_selected_dataset()
 
     # Use swipleserver to induce hypotheses for the positive and negative classes - DEPRICATED, NEED TO EDIT PATHS
-    acuity_path = "src/data/acuityFiles/pycuity"
+    acuity_path = "data/acuityFiles/pycuity"
     pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" # Note the single quotes - REQUIRED
     neg_data_path = f"'src/data/{selected_dataset}/pred_neg/{selected_dataset}'" # Note the single quotes - REQUIRED
 
@@ -875,7 +875,7 @@ def induce_all(n_clicks):
 
     # Run inference for the Assert Examples Card.
     inference_file_path = "'src/components/all_dynamic_files/inference_file.pl'"
-    positive_predictions_file_path = "src/components/rule_induction/positive_preds.json"
+    positive_predictions_file_path = "components/rule_induction/positive_preds.json"
 
     # Write the positive hypothesis to a prolog file
     # Note the [1:-1] to remove the single quotes from the string (included for swiplserver compatibility)
@@ -956,7 +956,7 @@ if __name__ == '__main__':
     with PrologMQI() as mqi:
         with mqi.create_thread() as main_prolog_thread:
             with mqi.create_thread() as negative_prediction_thread:
-                pycuity_path = "src/data/acuityFiles/pycuity"
+                pycuity_path = "data/acuityFiles/pycuity"
                 pos_data_path = "'src/data/train_trials/rule3/train3'"
                 main_prolog_thread.query(f"['{pycuity_path}'].")
                 main_prolog_thread.query(f"read_all({pos_data_path}).")

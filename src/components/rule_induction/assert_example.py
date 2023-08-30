@@ -15,7 +15,7 @@ from utils.app_functions import *
 
 def load_mutag(pos_ids):
     # Load in dataset and remove primary key row and mutagenic column (this is unknownd data)
-    mutagDf = pd.read_csv(f"src/data/mutag_plus/raw_data/molecule.csv")
+    mutagDf = pd.read_csv(f"data/mutag_plus/raw_data/molecule.csv")
     mutagDf = mutagDf.drop(0)
     mutagDf = mutagDf.drop(['mutagenic'], axis=1)
 

@@ -105,7 +105,7 @@ def reset_file(file_path):
                 f.write(line)
     
     # Clear added rules
-    file_to_delete = open("src/components/model_editor/added_rule.txt",'w')
+    file_to_delete = open("components/model_editor/added_rule.txt",'w')
     file_to_delete.close()
     return None
 

@@ -5,7 +5,7 @@
 :- set(cache_clauselength,5).
 :- set(clauselength,4).
 :- set(good,true).
-:- set(goodfile,"src/components/all_dynamic_files/good_clauses.txt").
+:- set(goodfile,"components/all_dynamic_files/good_clauses.txt").
 :- set(explore, true).
 
 :- discontiguous attended/1.
