@@ -6,7 +6,7 @@
 :- set(clauselength,4).
 :- set(good,true).
 :- set(explore,true).
-:- set(goodfile,"src/components/rule_induction/dynamic_files/good_clauses.txt").
+:- set(goodfile,"src/components/all_dynamic_files/good_clauses.txt").
 
 :- discontiguous attended/1.
 :- discontiguous load/3.

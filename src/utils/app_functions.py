@@ -45,7 +45,7 @@ def save_event_to_log(event, value):
     log_dict[new_event_number] = {"Time": "2021-07-01 12:00:00", 
                 "User": "user1", "Event": event, 
                 "Value": value}
-    save_dict_to_json(log_dict, 'src/components/rule_induction/dynamic_files/event_log.json')
+    save_dict_to_json(log_dict, 'src/components/all_dynamic_files/event_log.json')
 
 def change_aetable_class(sample_id, new_class = 'pos'):
     selected_dataset = get_selected_dataset()
@@ -72,7 +72,7 @@ def save_dict_to_json(dictObj, output_path):
 
 def get_event_log():
     '''Loads and return dictionary containing the current event log'''
-    with open('src/components/rule_induction/dynamic_files/event_log.json') as json_file:
+    with open('src/components/all_dynamic_files/event_log.json') as json_file:
         log_dict = json.load(json_file)
     return log_dict
     

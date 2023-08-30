@@ -168,12 +168,12 @@ def display_clause_and_acuity_options(n_clicks, text_input):
 
         # Save constraints and violations to an aleph output path - will depend on the example selected so 
         # need to add a store as input!!!!
-        aleph_output_path = 'src/components/rule_induction/dynamic_files/search_spaces/search_and_constraints_example2.json'
+        aleph_output_path = 'src/components/all_dynamic_files/search_spaces/search_and_constraints_example2.json'
         with open(aleph_output_path, "w") as f:
             json.dump(search_constraint_dict, f, indent=4)
 
 
-        search_constraint_path = f"src/components/rule_induction/dynamic_files/search_spaces/search_and_constraints_example{value}.json"
+        search_constraint_path = f"src/components/all_dynamic_files/search_spaces/search_and_constraints_example{value}.json"
 
         if os.path.isfile(search_constraint_path):
             # update the constraint violations only
@@ -192,7 +192,7 @@ def display_clause_and_acuity_options(n_clicks, text_input):
 
 
         # Run inference using the reduced clause for use by extent
-        inference_file_path = "'src/components/rule_induction/dynamic_files/inference_file.pl'"
+        inference_file_path = "'src/components/all_dynamic_files/inference_file.pl'"
 
         # Write the positive hypothesis to a prolog file
         # Note the [1:-1] to remove the single quotes from the string (included for swiplserver compatibility)
@@ -290,7 +290,7 @@ def list_constraint_options(n_clicks):
         return no_update
 
     # This will have to be generated depending on the selected example
-    aleph_output_path = 'src/components/rule_induction/dynamic_files/search_spaces/search_and_constraints_example2.json'
+    aleph_output_path = 'src/components/all_dynamic_files/search_spaces/search_and_constraints_example2.json'
 
     # Fetch all the search constraints
     with open(aleph_output_path) as f:
@@ -365,7 +365,7 @@ def display_search_cytoscape(checklist_value):
     if not checklist_value:
         return no_update
     
-    search_cytoscape_elements = generate_search_cytoscape_elements('src/components/rule_induction/dynamic_files/search_spaces/search_and_constraints_example2.json',
+    search_cytoscape_elements = generate_search_cytoscape_elements('src/components/all_dynamic_files/search_spaces/search_and_constraints_example2.json',
                                                                    checklist_value)
 
 
@@ -505,7 +505,7 @@ def display_bottom_clause(data, pick, extent, alternatives, clear_constraints, s
 
     elif button_id == 'alt_clause-button':
 
-        alternative_hypotheses = get_good_clauses("src/components/rule_induction/dynamic_files/good_clauses.txt")
+        alternative_hypotheses = get_good_clauses("src/components/all_dynamic_files/good_clauses.txt")
         
         alt_hyp_display = html.Div(
             [
@@ -590,7 +590,7 @@ def display_bottom_clause(data, pick, extent, alternatives, clear_constraints, s
             full_constraints = ['No constraints defined.']
 
 
-        saved_models_path = 'src/components/rule_induction/dynamic_files/saved_models.json'
+        saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
 
         with open(saved_models_path, 'r') as f:
             saved_models = json.load(f)
@@ -874,7 +874,7 @@ def induce_all(n_clicks):
 
 
     # Run inference for the Assert Examples Card.
-    inference_file_path = "'src/components/rule_induction/dynamic_files/inference_file.pl'"
+    inference_file_path = "'src/components/all_dynamic_files/inference_file.pl'"
     positive_predictions_file_path = "src/components/rule_induction/positive_preds.json"
 
     # Write the positive hypothesis to a prolog file
@@ -948,9 +948,9 @@ if __name__ == '__main__':
     This should be changed to allow for induction with the mutagenesis dataset.'''
 
     # Reset the saved_models file, the working_data file (that stores info about the selected trial) and file containing alternative clauses
-    clear_json_file(path = 'src/components/rule_induction/dynamic_files/saved_models.json')
+    clear_json_file(path = 'src/components/all_dynamic_files/saved_models.json')
     clear_json_file(path = 'src/data/meta_data/working_data.json')
-    clear_text_file(path = 'src/components/rule_induction/dynamic_files/good_clauses.txt')
+    clear_text_file(path = 'src/components/all_dynamic_files/good_clauses.txt')
 
 
     with PrologMQI() as mqi:
@@ -962,7 +962,7 @@ if __name__ == '__main__':
                 main_prolog_thread.query(f"read_all({pos_data_path}).")
                 
                 # Delete all files for resetting the search space
-                files = glob.glob('src/components/rule_induction/dynamic_files/search_spaces/*')
+                files = glob.glob('src/components/all_dynamic_files/search_spaces/*')
                 for f in files:
                     os.remove(f)
 
