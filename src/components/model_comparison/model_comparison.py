@@ -92,9 +92,9 @@ barCard = dbc.Card(
 # Model cards for each saved model
 
 
-saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
-with open(saved_models_path, 'r') as f:
-    saved_models = json.load(f)
+# saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
+# with open(saved_models_path, 'r') as f:
+#     saved_models = json.load(f)
 
 # Select Trial Number
 left_dropdown = html.Div(
