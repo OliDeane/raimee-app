@@ -92,7 +92,7 @@ barCard = dbc.Card(
 # Model cards for each saved model
 
 
-# saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
+# saved_models_path = 'components/all_dynamic_files/saved_models.json'
 # with open(saved_models_path, 'r') as f:
 #     saved_models = json.load(f)
 
@@ -201,7 +201,7 @@ def update_heatmap(clickData):
 def display_model_info(value):
     if not value:
         return no_update
-    saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
+    saved_models_path = 'components/all_dynamic_files/saved_models.json'
     with open(saved_models_path, 'r') as f:
         saved_models = json.load(f)
     
@@ -230,7 +230,7 @@ def display_model_info(value):
     Input("right_model_dropdown", "value"))
 def filter_right_heatmap(value):
     if value:
-        saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
+        saved_models_path = 'components/all_dynamic_files/saved_models.json'
         with open(saved_models_path, 'r') as f:
             saved_models = json.load(f)
     
@@ -256,7 +256,7 @@ def filter_right_heatmap(value):
 def display_left_model_info(value):
     if not value:
         return no_update
-    saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
+    saved_models_path = 'components/all_dynamic_files/saved_models.json'
     with open(saved_models_path, 'r') as f:
         saved_models = json.load(f)
     
@@ -287,7 +287,7 @@ def display_left_model_info(value):
     Input("left_model_dropdown", "value"))
 def filter_left_heatmap(value):
     if value:
-        saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
+        saved_models_path = 'components/all_dynamic_files/saved_models.json'
         with open(saved_models_path, 'r') as f:
             saved_models = json.load(f)
     

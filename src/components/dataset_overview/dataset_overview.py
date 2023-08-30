@@ -116,13 +116,13 @@ def store_selected_dataset(value):
     
     # trial_number = int(value[-1])
     trial_number = value[-1]
-    with open('src/data/meta_data/meta_data.json') as meta_data:
+    with open('data/meta_data/meta_data.json') as meta_data:
         selected_data = json.load(meta_data)
     selected_data = selected_data[str(trial_number)]
     
 
     # Save selected data to a file
-    with open('src/data/meta_data/working_data.json', 'w') as f:
+    with open('data/meta_data/working_data.json', 'w') as f:
         json.dump(selected_data, f)
 
     return selected_data

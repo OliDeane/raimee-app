@@ -45,11 +45,11 @@ def save_event_to_log(event, value):
     log_dict[new_event_number] = {"Time": "2021-07-01 12:00:00", 
                 "User": "user1", "Event": event, 
                 "Value": value}
-    save_dict_to_json(log_dict, 'src/components/all_dynamic_files/event_log.json')
+    save_dict_to_json(log_dict, 'components/all_dynamic_files/event_log.json')
 
 def change_aetable_class(sample_id, new_class = 'pos'):
     selected_dataset = get_selected_dataset()
-    csv_path = f'src/data/{selected_dataset}/raw_data/ae_file.csv'
+    csv_path = f'data/{selected_dataset}/raw_data/ae_file.csv'
 
     # load in csv file
     df = pd.read_csv(csv_path)
@@ -72,7 +72,7 @@ def save_dict_to_json(dictObj, output_path):
 
 def get_event_log():
     '''Loads and return dictionary containing the current event log'''
-    with open('src/components/all_dynamic_files/event_log.json') as json_file:
+    with open('components/all_dynamic_files/event_log.json') as json_file:
         log_dict = json.load(json_file)
     return log_dict
     
@@ -80,7 +80,7 @@ def get_event_log():
 def get_selected_dataset():
 
     # determine which dataset we should be using by loading in relevant meta_data
-    with open('src/data/meta_data/working_data.json') as f:
+    with open('data/meta_data/working_data.json') as f:
         meta_data = json.load(f)
     # Extract information required to run induction on the selected data
     return str(meta_data['trial_number'])
@@ -93,9 +93,9 @@ def assert_example_positive(sample_id):
     selected_dataset = get_selected_dataset()
 
     # read the positive examples file
-    pos_file_path = f'src/data/{selected_dataset}/pred_pos/{selected_dataset}.f'
-    unknown_file_path = f'src/data/{selected_dataset}/pred_pos/{selected_dataset}_unknown.pl'
-    neg_file_path = f'src/data/{selected_dataset}/pred_pos/{selected_dataset}.n'
+    pos_file_path = f'data/{selected_dataset}/pred_pos/{selected_dataset}.f'
+    unknown_file_path = f'data/{selected_dataset}/pred_pos/{selected_dataset}_unknown.pl'
+    neg_file_path = f'data/{selected_dataset}/pred_pos/{selected_dataset}.n'
 
     # add the sample_id to the positive file
     with open(pos_file_path, 'a') as f:
@@ -126,9 +126,9 @@ def assert_example_negative(sample_id):
     selected_dataset = get_selected_dataset()
 
     # read the positive examples file
-    pos_file_path = f'src/data/{selected_dataset}/pred_pos/{selected_dataset}.f'
-    unknown_file_path = f'src/data/{selected_dataset}/pred_pos/{selected_dataset}_unknown.pl'
-    neg_file_path = f'src/data/{selected_dataset}/pred_pos/{selected_dataset}.n'
+    pos_file_path = f'data/{selected_dataset}/pred_pos/{selected_dataset}.f'
+    unknown_file_path = f'data/{selected_dataset}/pred_pos/{selected_dataset}_unknown.pl'
+    neg_file_path = f'data/{selected_dataset}/pred_pos/{selected_dataset}.n'
 
     # add the sample_id to the positive file
     with open(neg_file_path, 'a') as f:
@@ -229,9 +229,9 @@ def parameter_dropdown(d_id, placeholder, options):
 
 def fetch_mutag_arrays(exampleNum):
 
-    molecule_df = pd.read_csv('src/data/mutag_plus/raw_data/molecule.csv')
-    atom_df = pd.read_csv('src/data/mutag_plus/raw_data/atom.csv')
-    bond_df = pd.read_csv('src/data/mutag_plus/raw_data/bond.csv')
+    molecule_df = pd.read_csv('data/mutag_plus/raw_data/molecule.csv')
+    atom_df = pd.read_csv('data/mutag_plus/raw_data/atom.csv')
+    bond_df = pd.read_csv('data/mutag_plus/raw_data/bond.csv')
 
     mol_array = molecule_df[molecule_df['molecule_id']==f'd{exampleNum}'].values.tolist()
     bond_df['molecule_id'] = [id.split('_')[0] for id in bond_df['atom1_id']]

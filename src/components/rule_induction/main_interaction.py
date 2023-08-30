@@ -200,7 +200,7 @@ interaction_card = dbc.Card(
 #     # Fetch current dataset path
 #     selected_dataset = get_selected_dataset()
 #     pycuity_path = "data/acuityFiles/pycuity"
-#     pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
+#     pos_data_path = f"'data/{selected_dataset}/pred_pos/{selected_dataset}'" 
 
 
 #     bottom_clause_list_raw, reduced_clause = get_bottom_clause(pycuity_path, pos_data_path, value)
@@ -278,7 +278,7 @@ interaction_card = dbc.Card(
 
     # # Assert the mustnot constraint
     # pycuity_path = "data/acuityFiles/pycuity"
-    # pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
+    # pos_data_path = f"'data/{selected_dataset}/pred_pos/{selected_dataset}'" 
     # assert_pick_constraint(pycuity_path, pos_data_path, data['current_example_number'], constraint_predicate = 'must_not([5])')
     
 

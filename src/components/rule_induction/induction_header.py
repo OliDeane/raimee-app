@@ -71,7 +71,7 @@ def removePredicate(n_clicks, value):
 
         predicate = re.sub(r'\(.+', '', value)
 
-        file_path = f'src/data/{selected_dataset}/pred_pos/{selected_dataset}.b'
+        file_path = f'data/{selected_dataset}/pred_pos/{selected_dataset}.b'
         remove_mode_declaration(file_path, predicate)
 
         # Save event to the event log
@@ -88,7 +88,7 @@ def reset_prolog_files(n_clicks):
         # Fetch current dataset path
         selected_dataset = get_selected_dataset()
 
-        file_path = f'src/data/{selected_dataset}/pred_pos/{selected_dataset}.b'
+        file_path = f'data/{selected_dataset}/pred_pos/{selected_dataset}.b'
         reset_file(file_path)
 
         return html.P('Reset Complete')

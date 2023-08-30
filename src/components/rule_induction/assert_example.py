@@ -40,7 +40,7 @@ def read_last_file_as_dataframe(directory):
     return df
 
 def load_assert_examples_table(dataset):
-    path = f'src/data/{dataset}/raw_data/ae_file.csv'
+    path = f'data/{dataset}/raw_data/ae_file.csv'
     # df = read_last_file_as_dataframe(path)
     df = pd.read_csv(path)    
     # Drop needless row
@@ -54,9 +54,9 @@ def load_assert_examples_table(dataset):
     return unknown, pos, neg
 
 def test_fetch_mutag_arrays(exampleNum):
-    molecule_df = pd.read_csv('src/data/mutag_plus/raw_data/molecule.csv')
-    atom_df = pd.read_csv('src/data/mutag_plus/raw_data/atom.csv')
-    bond_df = pd.read_csv('src/data/mutag_plus/raw_data/bond.csv')
+    molecule_df = pd.read_csv('data/mutag_plus/raw_data/molecule.csv')
+    atom_df = pd.read_csv('data/mutag_plus/raw_data/atom.csv')
+    bond_df = pd.read_csv('data/mutag_plus/raw_data/bond.csv')
 
     mol_array = molecule_df[molecule_df['molecule_id'] == molecule_df['molecule_id'][exampleNum+2]].values.tolist()
     bond_df['molecule_id'] = [id.split('_')[0] for id in bond_df['atom1_id']]
@@ -147,7 +147,7 @@ def display_assertExamples(value):
     mutagDf = ae_tables[value]
 
     # Access the positive predictions and add them to the dataframe
-    with open('src/components/rule_induction/positive_preds.json') as f:
+    with open('components/rule_induction/positive_preds.json') as f:
         pos_pred_dict = json.load(f)
     
     pred_pos = pos_pred_dict['pos_preds']
@@ -394,7 +394,7 @@ def displayTapNodeData(data):
         }
         return json.dumps(output_data, indent=2)
     else:
-        atom_df = pd.read_csv('src/data/mutag_plus/raw_data/atom.csv')
+        atom_df = pd.read_csv('data/mutag_plus/raw_data/atom.csv')
         selected_atom = atom_df[atom_df['atom_id']==data['id']].values.tolist()[0]
         output_data = {
             'id':selected_atom[0],

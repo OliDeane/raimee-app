@@ -18,7 +18,7 @@ from utils.swiplserver_functions import *
 from utils.cytoscape_functions import generate_search_cytoscape_elements, get_alternative_hypotheses, get_good_clauses
 
 def load_assert_examples_table(dataset):
-    path = f'src/data/{dataset}/raw_data/ae_file.csv'
+    path = f'data/{dataset}/raw_data/ae_file.csv'
     # df = read_last_file_as_dataframe(path)
     df = pd.read_csv(path)    
     # Drop needless row
@@ -123,8 +123,8 @@ def display_clause_and_acuity_options(n_clicks, text_input):
     # Fetch current dataset path
     selected_dataset = get_selected_dataset()
     pycuity_path = "data/acuityFiles/pycuity"
-    # pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
-    pos_data_path = f"'src/data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
+    # pos_data_path = f"'data/{selected_dataset}/pred_pos/{selected_dataset}'" 
+    pos_data_path = f"'data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
 
 
     try:
@@ -168,7 +168,7 @@ def display_clause_and_acuity_options(n_clicks, text_input):
 
         # Save constraints and violations to an aleph output path - will depend on the example selected so 
         # need to add a store as input!!!!
-        aleph_output_path = 'src/components/all_dynamic_files/search_spaces/search_and_constraints_example2.json'
+        aleph_output_path = 'components/all_dynamic_files/search_spaces/search_and_constraints_example2.json'
         with open(aleph_output_path, "w") as f:
             json.dump(search_constraint_dict, f, indent=4)
 
@@ -192,7 +192,7 @@ def display_clause_and_acuity_options(n_clicks, text_input):
 
 
         # Run inference using the reduced clause for use by extent
-        inference_file_path = "'src/components/all_dynamic_files/inference_file.pl'"
+        inference_file_path = "'components/all_dynamic_files/inference_file.pl'"
 
         # Write the positive hypothesis to a prolog file
         # Note the [1:-1] to remove the single quotes from the string (included for swiplserver compatibility)
@@ -211,11 +211,11 @@ def display_clause_and_acuity_options(n_clicks, text_input):
         coverage_display = html.P(f"Pos: {pos_coverage} | Neg: {neg_coverage} | Accuracy: {str(acc)}")
 
         # Save coverage to current working.json
-        with open('src/data/meta_data/working_data.json') as f:
+        with open('data/meta_data/working_data.json') as f:
             meta_data = json.load(f)
         meta_data['current_coverage'] = positive_predictions
             # Save selected data to a file
-        with open('src/data/meta_data/working_data.json', 'w') as f:
+        with open('data/meta_data/working_data.json', 'w') as f:
             json.dump(meta_data, f)
 
         # Add information to an output Div
@@ -290,7 +290,7 @@ def list_constraint_options(n_clicks):
         return no_update
 
     # This will have to be generated depending on the selected example
-    aleph_output_path = 'src/components/all_dynamic_files/search_spaces/search_and_constraints_example2.json'
+    aleph_output_path = 'components/all_dynamic_files/search_spaces/search_and_constraints_example2.json'
 
     # Fetch all the search constraints
     with open(aleph_output_path) as f:
@@ -365,7 +365,7 @@ def display_search_cytoscape(checklist_value):
     if not checklist_value:
         return no_update
     
-    search_cytoscape_elements = generate_search_cytoscape_elements('src/components/all_dynamic_files/search_spaces/search_and_constraints_example2.json',
+    search_cytoscape_elements = generate_search_cytoscape_elements('components/all_dynamic_files/search_spaces/search_and_constraints_example2.json',
                                                                    checklist_value)
 
 
@@ -590,7 +590,7 @@ def display_bottom_clause(data, pick, extent, alternatives, clear_constraints, s
             full_constraints = ['No constraints defined.']
 
 
-        saved_models_path = 'src/components/all_dynamic_files/saved_models.json'
+        saved_models_path = 'components/all_dynamic_files/saved_models.json'
 
         with open(saved_models_path, 'r') as f:
             saved_models = json.load(f)
@@ -690,7 +690,7 @@ def removePredicate(n_clicks, data, value):
 
     # Assert the mustnot constraint
     pycuity_path = "data/acuityFiles/pycuity"
-    pos_data_path = f"'src/data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
+    pos_data_path = f"'data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
 
     # generate the must_not constraint from the selected predicate
     bottom_clause_list = data['bottom_clause_list']
@@ -733,8 +733,8 @@ def removePredicate(n_clicks, data, value):
 
     # Assert the mustnot constraint
     pycuity_path = "data/acuityFiles/pycuity"
-    # pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
-    pos_data_path = f"'src/data/train_trials/pred_pos/rule{selected_dataset}/train{selected_dataset}'" 
+    # pos_data_path = f"'data/{selected_dataset}/pred_pos/{selected_dataset}'" 
+    pos_data_path = f"'data/train_trials/pred_pos/rule{selected_dataset}/train{selected_dataset}'" 
 
     # generate the must_not constraint from the selected predicate
     bottom_clause_list = data['bottom_clause_list']
@@ -773,8 +773,8 @@ def removePredicate(n_clicks, data, value):
 
     # Assert the mustnot constraint
     pycuity_path = "data/acuityFiles/pycuity"
-    # pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
-    pos_data_path = f"'src/data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
+    # pos_data_path = f"'data/{selected_dataset}/pred_pos/{selected_dataset}'" 
+    pos_data_path = f"'data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
 
     # generate the must_not constraint from the selected predicate
     bottom_clause_list = data['bottom_clause_list']
@@ -823,7 +823,7 @@ def addPredicate(n_clicks, data, value):
 
     # Assert the mustnot constraint
     pycuity_path = "data/acuityFiles/pycuity"
-    pos_data_path = f"'src/data/train_trials/pred_pos/rule{selected_dataset}/train{selected_dataset}'" 
+    pos_data_path = f"'data/train_trials/pred_pos/rule{selected_dataset}/train{selected_dataset}'" 
 
     # generate the must_not constraint from the selected predicate
     bottom_clause_list = data['bottom_clause_list']
@@ -864,8 +864,8 @@ def induce_all(n_clicks):
 
     # Use swipleserver to induce hypotheses for the positive and negative classes - DEPRICATED, NEED TO EDIT PATHS
     acuity_path = "data/acuityFiles/pycuity"
-    pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" # Note the single quotes - REQUIRED
-    neg_data_path = f"'src/data/{selected_dataset}/pred_neg/{selected_dataset}'" # Note the single quotes - REQUIRED
+    pos_data_path = f"'data/{selected_dataset}/pred_pos/{selected_dataset}'" # Note the single quotes - REQUIRED
+    neg_data_path = f"'data/{selected_dataset}/pred_neg/{selected_dataset}'" # Note the single quotes - REQUIRED
 
     # pos_rule_list = induce_with_swiplserver(main_prolog_thread, acuity_path, pos_data_path, label = 'pos')
     # neg_rule_list = induce_with_swiplserver(main_prolog_thread, acuity_path, neg_data_path, label = 'neg')
@@ -874,7 +874,7 @@ def induce_all(n_clicks):
 
 
     # Run inference for the Assert Examples Card.
-    inference_file_path = "'src/components/all_dynamic_files/inference_file.pl'"
+    inference_file_path = "'components/all_dynamic_files/inference_file.pl'"
     positive_predictions_file_path = "components/rule_induction/positive_preds.json"
 
     # Write the positive hypothesis to a prolog file
@@ -948,21 +948,21 @@ if __name__ == '__main__':
     This should be changed to allow for induction with the mutagenesis dataset.'''
 
     # Reset the saved_models file, the working_data file (that stores info about the selected trial) and file containing alternative clauses
-    clear_json_file(path = 'src/components/all_dynamic_files/saved_models.json')
-    clear_json_file(path = 'src/data/meta_data/working_data.json')
-    clear_text_file(path = 'src/components/all_dynamic_files/good_clauses.txt')
+    clear_json_file(path = 'components/all_dynamic_files/saved_models.json')
+    clear_json_file(path = 'data/meta_data/working_data.json')
+    clear_text_file(path = 'components/all_dynamic_files/good_clauses.txt')
 
 
     with PrologMQI() as mqi:
         with mqi.create_thread() as main_prolog_thread:
             with mqi.create_thread() as negative_prediction_thread:
                 pycuity_path = "data/acuityFiles/pycuity"
-                pos_data_path = "'src/data/train_trials/rule3/train3'"
+                pos_data_path = "'data/train_trials/rule3/train3'"
                 main_prolog_thread.query(f"['{pycuity_path}'].")
                 main_prolog_thread.query(f"read_all({pos_data_path}).")
                 
                 # Delete all files for resetting the search space
-                files = glob.glob('src/components/all_dynamic_files/search_spaces/*')
+                files = glob.glob('components/all_dynamic_files/search_spaces/*')
                 for f in files:
                     os.remove(f)
 

@@ -26,7 +26,7 @@ def add_integrity_constraint(constraint_predicate, class_type = 'pos', dataset =
     """
 
     path = os.getcwd()
-    file_path = os.path.join(path,f'src/data/{dataset}/pred_{class_type}/{dataset}.b')
+    file_path = os.path.join(path,f'data/{dataset}/pred_{class_type}/{dataset}.b')
 
     # Get arity of predicate
     arity_substring = get_arity_substring(constraint_predicate, file_path)
@@ -38,7 +38,7 @@ def add_integrity_constraint(constraint_predicate, class_type = 'pos', dataset =
 
 def write_operator(operator, dataset = 'train'):
     path = os.getcwd()
-    file_path = os.path.join(path,f'src/data/{dataset}/pred_pos/{dataset}.b')
+    file_path = os.path.join(path,f'data/{dataset}/pred_pos/{dataset}.b')
     bk_file = open(file_path, 'a')
     bk_file.write(operator)
     bk_file.close()
@@ -111,7 +111,7 @@ def reset_file(file_path):
 
 
 # if __name__=='__main__':
-#     reset_file('src/data/breast_cancer/pred_pos/breast_cancer.b')
+#     reset_file('data/breast_cancer/pred_pos/breast_cancer.b')
     # clause, operator = initiate_refiner('has_car', target_pred='eastbound')
     # print(operator)
     # clause, operator = add_refiner_predicate(prev_clause = clause, pred = 'short', target_pred='eastbound')
@@ -122,6 +122,6 @@ def reset_file(file_path):
 
     # predicate = 'attended'
     # dataset = 'train'
-    # file_path = f'src/data/{dataset}/pred_pos/{dataset}.b'
+    # file_path = f'data/{dataset}/pred_pos/{dataset}.b'
     # remove_mode_declaration(predicate, file_path)
 

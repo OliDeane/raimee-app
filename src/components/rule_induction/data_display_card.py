@@ -91,7 +91,7 @@ def display_data_toggle(n_test, n_data_lake):
 
 
     # Fetch list of covered examples
-    with open('src/data/meta_data/working_data.json') as meta_data:
+    with open('data/meta_data/working_data.json') as meta_data:
         dataset_info = json.load(meta_data)
     print(dataset_info)
     pos_list = dataset_info['current_coverage']
@@ -244,7 +244,7 @@ def display_all_data(n_clicks):
     button_id = "data_lake"
 
     # Fetch list of covered examples
-    with open('src/data/meta_data/working_data.json') as meta_data:
+    with open('data/meta_data/working_data.json') as meta_data:
         dataset_info = json.load(meta_data)
     print(dataset_info)
     pos_list = dataset_info['current_coverage']

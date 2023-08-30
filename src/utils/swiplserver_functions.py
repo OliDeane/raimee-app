@@ -120,7 +120,7 @@ def induce_with_swiplserver(main_prolog_thread, negative_prediction_thread, acui
 
     # Run the negative prediction inference on the negative prediction thread
     pycuity_path = "data/acuityFiles/pycuity"
-    neg_data_path = f"'src/data/train/pred_neg/train'"
+    neg_data_path = f"'data/train/pred_neg/train'"
     negative_prediction_thread.query(f"['{pycuity_path}'].")
     negative_prediction_thread.query(f"read_all({neg_data_path}).")
     negative_prediction_thread.query("induce.")
