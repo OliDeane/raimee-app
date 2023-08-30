@@ -32,7 +32,7 @@ def load_assert_examples_table(dataset):
     return df, unknown, pos, neg
 
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
-# server=app.server
+server=app.server
 
 app.layout = html.Div(
     [
@@ -690,7 +690,6 @@ def removePredicate(n_clicks, data, value):
 
     # Assert the mustnot constraint
     pycuity_path = "src/data/acuityFiles/pycuity"
-    # pos_data_path = f"'src/data/{selected_dataset}/pred_pos/{selected_dataset}'" 
     pos_data_path = f"'src/data/train_trials/rule{selected_dataset}/train{selected_dataset}'" 
 
     # generate the must_not constraint from the selected predicate
@@ -967,4 +966,4 @@ if __name__ == '__main__':
                 for f in files:
                     os.remove(f)
 
-                app.run_server(debug=True, port=8000)
+                app.run_server(debug=True)
