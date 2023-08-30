@@ -6,7 +6,6 @@ numpy==1.23.4
 openai==0.27.4
 pandas==1.5.1
 plotly==5.11.0
-pyswip==0.2.10
 swiplserver==1.0.2
 gunicorn
 dash-tools
