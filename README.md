@@ -58,7 +58,7 @@ RAIMEE integrates three key layers:
   - `layouts/` — Dash layouts and static UI artefacts.
   - _Additional Python/Prolog modules for ILP and reasoning._
 
-## ▶️ Running the Application
+## Running the Application
 
 ~~~bash
 python src/app.py
@@ -68,7 +68,7 @@ Once launched, open your browser at:
 ```http://127.0.0.1:8050/```
 
 
-> ℹ️ You can modify host/port in `src/app.py` if needed. Requires everything in `requirements.txt` and **Python ≥ 3.9** (and a Prolog environment such as SWI-Prolog if your setup invokes Prolog directly).
+> You can modify host/port in `src/app.py` if needed. Requires everything in `requirements.txt`, **Python ≥ 3.9** and a Prolog environment such as SWI-Prolog.
 
 
 ## Interface Overview
@@ -81,8 +81,6 @@ RAIMEE provides a no-code, interactive workflow for inductive logic programming 
 - **Model Editing** — Provide feedback with integrity constraints, define/edit rules, and assert new (counter)examples.
 - **Model Comparison** — Compare versions of induced rule-sets to see how feedback shaped hypotheses.
 
-
-
 ## System Workflow (Diagram)
 
 ![System Overview Diagram](imgs/reaimeeOverview.png)
@@ -90,14 +88,7 @@ RAIMEE provides a no-code, interactive workflow for inductive logic programming 
 
 ## Expected Output
 
-When the app is running, you should see views like:
-
-- Dataset overview (schema/table/graph)
-- Rule induction & rule coverage
-- Model editor (constraints, examples, rule edits)
-- Model comparison
-
-Add your screenshots here:
+When the app is running, you should see a multi-tab application. The below visualises some of the featured interactive mechanisms:
 
 ![RAIMEE Interface – Overview](imgs/raimeeScreenshots.png)
 
