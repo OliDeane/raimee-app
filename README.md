@@ -1,13 +1,13 @@
-# 🧩 RAIMEE: Relational AI Model Explorer and Editor
+# RAIMEE: Relational AI Model Explorer and Editor
 
 **RAIMEE** is an **interactive visual interface** for exploring, editing, and refining hypotheses induced via **Inductive Logic Programming (ILP)**.  
 It provides a **no-code environment** for domain experts to interact with relational machine learning models — combining visual analytics with logical reasoning.
 
-> 🧠 *RAIMEE extends ideas from AIMEE (“AI Model Explorer and Editor”) into the relational domain, integrating logic-based reasoning from ACUITY with intuitive, human-centered visual interaction.*
+> *RAIMEE extends ideas from AIMEE (“AI Model Explorer and Editor”) into the relational domain, integrating logic-based reasoning from ACUITY with intuitive, human-centered visual interaction.*
 
 ---
 
-## 📚 Overview
+## Overview
 
 RAIMEE enables users to iteratively train and refine **logic-based machine learning models** through an intuitive visual dashboard.  
 Users can induce rule-based hypotheses, inspect them through multiple relational visualizations, and refine them by providing **interactive feedback** via visual mechanisms — no Prolog expertise required.
@@ -20,7 +20,7 @@ This repository accompanies the publication:
 
 ---
 
-## 🧠 System Architecture
+## System Architecture
 
 RAIMEE integrates three key layers:
 
@@ -44,9 +44,7 @@ RAIMEE integrates three key layers:
 
 ---
 
-## 🧩 Repository Structure
-
-## 🧩 Repository Structure
+## Repository Structure
 
 - `requirements.txt` — Python dependencies.
 - `README.md` — Project documentation.
@@ -73,7 +71,7 @@ Once launched, open your browser at:
 > ℹ️ You can modify host/port in `src/app.py` if needed. Requires everything in `requirements.txt` and **Python ≥ 3.9** (and a Prolog environment such as SWI-Prolog if your setup invokes Prolog directly).
 
 
-## 🌐 Interface Overview
+## Interface Overview
 
 RAIMEE provides a no-code, interactive workflow for inductive logic programming over **relational** datasets:
 
@@ -83,18 +81,14 @@ RAIMEE provides a no-code, interactive workflow for inductive logic programming 
 - **Model Editing** — Provide feedback with integrity constraints, define/edit rules, and assert new (counter)examples.
 - **Model Comparison** — Compare versions of induced rule-sets to see how feedback shaped hypotheses.
 
-This reflects the interactive loop described in the paper: data → initial hypothesis → user feedback → refined hypotheses.
 
 
-## 🧮 System Workflow (Diagram)
-
-System Overview: Relational data is ingested and encoded as logical facts within a knowledge base (the Background Knowledge). The ILP model uses this knowledge, along with separate files that define the
-class labels of each sample, to induce an initial rule-set (hypothesis). This hypothesis is subsequently presented to the user for inspection. The user can then iteratively feed back to the model via specialised ILP mechanisms to guide it towards a more desirable hypothesis.
+## System Workflow (Diagram)
 
 ![System Overview Diagram](imgs/reaimeeOverview.png)
 
 
-## 🖼️ Expected Output (Screenshots)
+## Expected Output
 
 When the app is running, you should see views like:
 
@@ -108,7 +102,7 @@ Add your screenshots here:
 ![RAIMEE Interface – Overview](imgs/raimeeScreenshots.png)
 
 
-## 📂 Example Datasets
+## Example Datasets
 
 | Dataset               | Description                                      | Location                |
 |-----------------------|--------------------------------------------------|-------------------------|
@@ -116,7 +110,7 @@ Add your screenshots here:
 | Michalski’s Trains    | Illustrative relational reasoning task           | `src/data/trains/`      |
 
 
-## 🧩 Technical Notes
+## Technical Notes
 
 - Front-end: **Dash + Python** (visualizations, components, layouts).
 - Back-end: **Prolog** for ILP-style logical reasoning; Python wrappers to orchestrate induction and constraints.
@@ -129,13 +123,13 @@ Add your screenshots here:
 - Run locally with `python src/app.py` (default: `http://127.0.0.1:8050/`).
 
 
-## 🧑‍💻 Authors
+## Authors
 
 - **Oliver Deane** — University of Bristol — <oliver.deane@bristol.ac.uk>  
 - **Oliver Ray** — University of Bristol
 
 
-## 📜 Citation
+## Citation
 
 If you use this software in your research, please cite:
 
@@ -151,12 +145,12 @@ If you use this software in your research, please cite:
 ~~~
 
 
-## 🧭 License
+## License
 
 This project is released under the **MIT License**. See `LICENSE` for details.
 
 
-## 🧰 Acknowledgments
+## Acknowledgments
 
 Supported by the **UKRI CDT in Interactive Artificial Intelligence** (EP/S022937/1).  
 Thanks to **Elizabeth Daly**, **Inge Vejsbjerg**, and **Steve Moyle** for their insights on ILP and interpretability.
